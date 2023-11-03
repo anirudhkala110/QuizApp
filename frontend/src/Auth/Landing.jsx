@@ -25,8 +25,8 @@ function Landing({ user, onLogout }) {
       });
   },);
 
-  const handleSaveQuestions = () => {
-
+  const handleSaveQuestions = (e) => {
+ e.preventDefault();
     axios.post('http://localhost:8000/update_questions', { ...options, opt1: options.opt1, opt2: options.opt2, opt3: options.opt3, opt4: options.opt4, question, correctAnswer })
       .then((response) => {
         console.log(response.data.message);
